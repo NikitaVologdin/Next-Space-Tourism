@@ -22,6 +22,7 @@ export default function SlideImage({
   priority,
   alt,
 }: props) {
+  console.log(width);
   return (
     <div className={`slide-image__container ${className || ""}`}>
       <Image

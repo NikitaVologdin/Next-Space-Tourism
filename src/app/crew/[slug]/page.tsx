@@ -45,6 +45,14 @@ export default async function page({ params }: props) {
     document
   )) as unknown as TUpdatedAstronaut;
 
+  const env = process.env.NODE_ENV;
+  let extension = "png";
+  if (env == "development") {
+    extension = "png";
+  } else if (env == "production") {
+    extension = "webp";
+  }
+
   return (
     <>
       <Article
@@ -57,10 +65,10 @@ export default async function page({ params }: props) {
         <Controls refs={["commander", "specialist", "pilot", "engineer"]} />
       </Article>
       <SlideImage
-        src={astronaut.images.png.src}
-        width={astronaut.images.png.width}
+        src={astronaut.images[extension].src}
+        width={astronaut.images[extension].width}
         defaultWidth={445}
-        height={astronaut.images.png.height}
+        height={astronaut.images[extension].height}
         defaultHeight={445}
         alt={`Shows destination target – ${astronaut.name} planet`}
         priority={true}
