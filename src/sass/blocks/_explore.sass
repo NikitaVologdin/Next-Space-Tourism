@@ -1,0 +1,30 @@
+@use "../abstractions/mixins"
+@use "../abstractions/functions"
+@use "../abstractions/fonts"
+@use "../abstractions/media"
+
+.explore
+    margin-top: 119px
+    @include mixins.reset-button
+    width: 144px
+    height: 144px
+    border-radius: 50%
+    background-color: var(--white)
+    color: var(--blue-900)
+    cursor: pointer
+    text-transform: uppercase
+    font-weight: 400
+    font-size: functions.rem(18)
+    letter-spacing: 0
+    @include fonts.font-bellefair
+
+    @include media.mobile-above
+        margin-top: 66px
+        width: 272px
+        height: 272px
+        font-size: functions.rem(32)
+    @include media.tablet-above
+        margin-top: 0
+        justify-self: end
+
+

@@ -1,0 +1,98 @@
+@use "../abstractions/mixins"
+@use "../abstractions/functions"
+@use "../abstractions/media"
+@use "../abstractions/fonts"
+
+
+.destination-controls
+    display: flex
+    gap: 26px
+    justify-content: center
+    margin-top: 30px
+
+.destination-controls__button
+    @include mixins.reset-button
+    color: var(--blue-300)
+    text-transform: uppercase
+    padding-bottom: 10px
+    border-bottom: 3px solid transparent
+    font-size: functions.rem(14)
+    letter-spacing: 3px
+    cursor: pointer
+    @include fonts.font-barlow-condensed
+
+.destination-controls__button_active
+    color: var(--white)
+    border-color: var(--white)
+
+
+.destination
+    .article
+        display: grid
+        grid-template-columns: 1fr
+        grid-template-rows: auto
+        .controls 
+            margin-top: 46px
+            margin-bottom: 14px
+    .article__heading
+        // margin-top: 40px
+        grid-area: title
+        grid-row: 2
+        grid-column: 1
+        &_title
+            font-size: functions.rem(56)
+            margin-bottom: 7px
+    .article__paragraph
+        grid-area: paragraph
+        grid-row: 3
+        grid-column: 1
+        letter-spacing: 0.7px
+    .article__hr
+        grid-area: hr
+        grid-row: 5
+        grid-column: 1
+    .distance
+        grid-area: distance
+        grid-row: 5
+        grid-column: 1
+    .destination-controls
+        grid-area: controls
+        grid-row: 1
+        grid-column: 1
+    .slide-image__container
+        max-width: 45.872%
+        max-height: 45.872%
+        margin: 0 auto
+
+@include media.mobile-above
+    .destination
+        .slide-image__container
+            max-width: 43.6%
+            max-height: 43.6%
+            margin: 0 auto
+        .article__heading
+            &_title
+                font-size: functions.rem(80)
+    
+
+
+@include media.tablet-above
+    .destination
+        .slide-image__container
+            grid-column: 1
+        .destination__article
+            grid-column: 2
+        .article__heading
+            margin-top: 40px
+            &_title
+                font-size: functions.rem(96)
+        .distance
+            margin-top: 60px
+        .destination-controls
+
+            position: static
+            justify-content: flex-start
+        .slide-image__container
+            max-width: 100%
+            max-height: 100%
+

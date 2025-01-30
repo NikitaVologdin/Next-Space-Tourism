@@ -1,0 +1,25 @@
+@use '../abstractions/mixins'
+@use '../abstractions/media'
+@use '../abstractions/fonts'
+@use '../abstractions/functions'
+
+.nav
+    position: relative
+    z-index: 1
+    color: var(--white)
+
+.nav__list
+    display: flex
+    flex-direction: column
+    gap: 2rem
+    font-weight: 400
+    font-size: functions.rem(16)
+    letter-spacing: 2px
+    @include fonts.font-barlow-condensed
+
+.nav__item
+    text-wrap: nowrap
+
+.nav__link
+    word-spacing: 9px
+

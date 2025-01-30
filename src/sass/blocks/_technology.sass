@@ -1,0 +1,127 @@
+@use "../abstractions/mixins"
+@use "../abstractions/functions"
+@use "../abstractions/media"
+@use "../abstractions/fonts"
+
+.technology .page__content
+    margin-top: 80px
+
+.technology-controls
+    margin-block: 32px 40px
+    gap: 16px
+
+.technology-controls__button
+    @include mixins.reset-button
+    position: relative
+    color: var(--white)
+    font-size: functions.rem(18)
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    background-color: transparent
+    cursor: pointer
+    border: 1px solid rgba(255, 255, 255, 25)
+
+.technology-controls__button_text
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+.technology-controls__button_active
+    background-color: var(--white)
+    color: var(--blue-900)
+
+.technology__slide-image
+    margin-top: 24px
+    position: absolute
+    left: 0
+    width: 100vw
+    img
+        height: 29.3vh
+        width: 100%
+        min-height: 262px
+
+.technology
+    .article
+        padding-top: 44.3vh
+        display: grid
+        grid-template-columns: 1fr
+        grid-template-rows: auto
+    .article__heading
+        // margin-top: 40px
+        grid-area: title
+        grid-row: 2
+        grid-column: 1
+        &_title
+            margin-bottom: 7px
+    .article__paragraph
+        grid-area: paragraph
+        grid-row: 3
+        grid-column: 1
+        letter-spacing: 0.7px
+    .controls
+        grid-area: controls
+        grid-row: 1
+        grid-column: 1
+
+
+@include media.mobile-above
+    .technology
+        .article
+            padding-top: 58.3vh
+    .technology-controls__button
+        font-size: functions.rem(24)
+        width: 56px
+        height: 56px
+    .technology__slide-image
+        img
+            height: 55.3vh
+            min-height: 357px
+
+@include media.tablet-above
+    .page:has(.technology)
+        padding-inline: 0
+        position: relative
+        right: -48px
+        padding-left: 70px 
+    .technology__slide-image
+        position: static
+        width: auto
+        grid-column: 2
+        img
+            height: auto
+            min-height: 357px
+    .technology-controls
+        grid-area: controls
+        flex-direction: column
+        position: static
+        margin: 0
+        gap: 32px
+    .technology-controls__button
+        font-size: functions.rem(32)
+        width: 80px
+        height: 80px
+    .technology
+        .article
+            padding-top: 0
+            grid-column: 1
+            grid-row: 1
+            grid-template-columns: auto auto
+            grid-template-areas: "controls heading" "controls paragraph"
+            grid-column-gap: 64px 
+            align-self: center
+            margin-top: 45px
+            &__heading
+                grid-column: 2
+                grid-area: heading
+            &__paragraph
+                grid-column: 2
+                grid-area: paragraph
+        .controls
+            grid-column: 1
+            grid-row: span 10
+        .slide-image__container
+            grid-column: 1
+        .destination__article
+            grid-column: 2

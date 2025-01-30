@@ -1,0 +1,17 @@
+@use "../abstractions/media"
+
+.controls
+    display: flex
+    gap: 32px
+    justify-content: center
+    margin-block: 24px 32px
+    grid-area: controls
+
+@include media.tablet-above
+    .controls
+        // margin-top: auto !important
+        position: absolute
+        bottom: 0
+        left: 0
+        align-self: flex-start
+        margin-bottom: -15px

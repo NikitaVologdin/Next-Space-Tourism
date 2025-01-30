@@ -1,0 +1,51 @@
+@use "../abstractions/mixins"
+@use "../abstractions/functions"
+@use "../abstractions/media"
+@use "../abstractions/fonts"
+
+.page
+    margin-bottom: 24px
+
+.page__heading
+    display: flex
+    justify-content: center
+    gap: 24px
+    margin-block: 24px
+    font-size: functions.rem(16)
+    letter-spacing: 3px
+    color: var(--white)
+    text-transform: uppercase
+    @include fonts.font-barlow-condensed
+
+.page__heading_decorator
+    opacity: 25%
+
+.page__slide
+    margin-block: 32px 24px
+
+.page__content
+    margin-top: 56px
+
+
+@include media.mobile-above
+    .page
+        margin-bottom: 40px
+    .page__heading
+        margin-block: 40px
+        justify-content: flex-start
+        font-size: functions.rem(20)
+
+@include media.tablet-above
+    .page
+        margin-bottom: 48px
+    .page__content
+        display: grid
+        grid-template-columns: 1fr 1fr
+        gap: 32px
+    .page__heading
+        margin-block: 48px
+        font-size: functions.rem(28)
+    .page
+        padding-inline: 100px 
+
+

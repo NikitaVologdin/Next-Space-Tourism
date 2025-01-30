@@ -1,0 +1,25 @@
+@use "../abstractions/media"
+@use "../abstractions/mixins"
+    
+body 
+    font-size: var(--root-font-size)
+    font-weight: 400
+    color: var(--white)
+    background-color: var(--blue-900)
+    position: relative
+    
+    &:has(dialog[open]) 
+        overflow-y: hidden
+
+
+a,
+button,
+input,
+textarea,
+svg * 
+    transition-duration: var(--transition-duration)
+
+a 
+    text-decoration: none
+    color: inherit
+

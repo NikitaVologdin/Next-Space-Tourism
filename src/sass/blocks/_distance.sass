@@ -1,0 +1,45 @@
+@use "../abstractions/mixins"
+@use "../abstractions/functions"
+@use "../abstractions/media"
+@use "../abstractions/fonts"
+
+.distance
+    grid-area: distance
+    margin-top: 18px
+
+.distance__content
+    display: flex
+    flex-direction: column
+    justify-content: center
+    gap: 24px
+
+.distance__heading
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    gap: 3px
+
+.distance__subheading
+    color: var(--blue-300)
+    font-size: functions.rem(14)
+    letter-spacing: 2px
+    text-transform: uppercase
+    @include fonts.font-barlow-condensed
+
+.distance__title
+    font-size: functions.rem(28)
+    font-weight: 400
+    text-transform: uppercase
+    @include fonts.font-bellefair
+
+@include media.mobile-above
+    .distance__content
+        flex-direction: row
+        gap: 82px
+
+@include media.tablet-above
+    .distance__content
+        justify-content: flex-start
+    .distance__heading
+        align-items: flex-start

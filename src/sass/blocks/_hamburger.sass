@@ -1,0 +1,37 @@
+@use "../abstractions/media"
+@use "../abstractions/functions"
+@use "../abstractions/mixins"
+
+.hamburger
+    @include mixins.reset-button
+    display: flex
+    flex-direction: column
+    gap: 6px
+    margin-left: auto
+    padding: 14px
+    position: absolute
+    right: 14px
+    z-index: 2
+    @include media.mobile-above
+        display: none
+
+
+.hamburger__line
+    width: 1.5rem
+    height: functions.rem(3)
+    background-color: var(--blue-300)
+    z-index: 1
+
+    &_expanded:nth-child(2)
+        display: none
+    &_expanded:first-child
+        position: relative
+        transform: rotate(45deg)
+        top: 4px
+    &_expanded:last-child
+        position: relative
+        transform: rotate(-45deg)
+        bottom: 5px
+        
+
+

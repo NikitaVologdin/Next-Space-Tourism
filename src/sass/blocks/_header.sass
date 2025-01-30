@@ -1,0 +1,66 @@
+@use "../abstractions/media"
+@use "../abstractions/functions"
+
+.header
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-block: 24px
+
+.header__hr
+    display: none
+
+.header__nav
+    display: none
+
+.header__nav .nav__item
+    padding-block: 35.5px
+    border-bottom: 3px solid transparent
+    transition: border-color var(--transition-duration) ease
+
+    &:hover
+        border-color: hsl(0,0%,100%,50%)
+
+.header__nav .nav__item:has(.nav__link_active)
+    border-color: var(--white)
+
+@include media.mobile-above
+    .header
+        justify-content: space-between
+        margin-block: 0
+    .header__nav
+        display: block
+        background: hsl(0,0%,100%,5%)
+        backdrop-filter: blur(40px)
+        position: relative
+        left: 40px
+        padding-inline: 40px
+    .header__nav .nav__list
+        flex-direction: row
+        gap: functions.rem(48)
+    
+
+@include media.tablet-above
+    .header
+        padding-top: 40px
+
+    .header__hr
+        display: block
+        height: 1px
+        background: hsl(0,0%,100%,25%)
+        width: 41%
+        flex-shrink: 2
+        position: relative
+        left: 98px
+        z-index: 2
+    .header__nav
+        width: 51.1111%
+        min-width: 642px
+        flex-grow: 1
+        left: 48px
+        padding-inline: 64px
+        padding-right: 64px
+    .header__nav .nav__list
+        justify-content: flex-end
+        gap: functions.rem(43)

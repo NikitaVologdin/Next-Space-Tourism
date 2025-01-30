@@ -1,0 +1,76 @@
+@use "../abstractions/mixins"
+@use "../abstractions/functions"
+@use "../abstractions/media"
+@use "../abstractions/fonts"
+
+.article
+    grid-area: article
+    grid-column: 1
+
+.article__heading_title
+    display: block
+    text-align: center
+    font-size: functions.rem(24)
+    font-weight: 400
+    text-transform: uppercase
+    margin-bottom: 20px
+    @include fonts.font-bellefair
+
+.article__heading_subheading
+    display: block
+    color: var(--white)
+    opacity: 50.42%
+    font-size: functions.rem(18)
+    text-transform: uppercase
+    text-align: center
+    margin-bottom: 3px
+    font-weight: 400
+
+.article__paragraph
+    text-align: center
+    color: var(--blue-300)
+    font-size: functions.rem(15)
+    line-height: 180%
+    text-wrap: balance
+    min-height: 162px
+    letter-spacing: 0.3px
+
+
+.article__hr
+    height: 1px
+    background-color: var(--white)
+    opacity: 25%
+    margin-block: 10px
+
+
+@include media.mobile-above
+    .article
+        padding-inline: 88px
+    .article__heading_title
+        font-size: functions.rem(40)
+        margin-bottom: 16px
+    .article__heading_subheading
+        font-size: functions.rem(24)
+        margin-bottom: 8px
+    .article__paragraph
+        min-height: 117px
+        font-size: functions.rem(16)
+        line-height: 180%
+        text-wrap: auto
+@include media.tablet-above
+    .article
+        padding-inline: 0px
+        display: flex
+        flex-direction: column
+        justify-content: center
+        position: relative
+    .article__heading_title
+        font-size: functions.rem(56)
+        text-align: left
+    .article__heading_subheading
+        font-size: functions.rem(32)
+        text-align: left
+    .article__paragraph
+        min-height: 128px
+        font-size: functions.rem(18)
+        text-align: left

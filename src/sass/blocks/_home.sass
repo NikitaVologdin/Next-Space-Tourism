@@ -1,0 +1,71 @@
+@use "../abstractions/mixins"
+@use "../abstractions/functions"
+@use "../abstractions/fonts"
+@use "../abstractions/media"
+
+.home
+    margin-block: 24px
+
+.home__content
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.home__heading
+    color: var(--blue-300)
+    font-size: functions.rem(16)
+    letter-spacing: 2.5px
+    text-transform: uppercase
+    text-align: center
+    @include fonts.font-barlow-condensed
+
+.home__heading_highlight
+    font-weight: 400
+    display: block
+    color: var(--white)
+    font-size: functions.rem(80)
+    letter-spacing: 0
+    text-transform: uppercase
+    @include fonts.font-bellefair
+
+.home__paragraph
+    margin-top: 15px
+    color: var(--blue-300)
+    font-size: functions.rem(15)
+    letter-spacing: 0
+    line-height: 180%
+    @include fonts.font-barlow
+    text-align: center
+
+@include media.mobile-above
+    .home
+        margin-block: 0
+    .home__heading
+        font-size: functions.rem(28)
+        letter-spacing: 4px
+    .home__heading_highlight
+        font-size: functions.rem(144)
+    .home__paragraph
+        font-size: functions.rem(16)
+        line-height: 180%
+        margin-top: 0
+
+@include media.mobile-above
+    .home__content
+        margin-top: 128px
+
+    .home__paragraph
+        font-size: functions.rem(18)
+        text-wrap: balance
+
+@include media.tablet-above
+    .home
+        padding-bottom: 128px
+    .home__content
+        margin-top: 410px
+        padding-inline: 118px
+        display: grid
+        grid-template-columns: 1fr 1fr
+
+    .home__heading, .home__heading_highlight, .home__paragraph
+        text-align: left
