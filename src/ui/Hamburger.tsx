@@ -18,6 +18,9 @@ export default function Hamburger() {
 
   return (
     <button className="hamburger" onClick={toggleMenuHandler}>
+      <span className="visually-hidden">{`${
+        isMenuShown ? "Close" : "Open"
+      } navigation menu`}</span>
       <span className={`hamburger__line ${expandedClass}`}></span>
       <span className={`hamburger__line ${expandedClass}`}></span>
       <span className={`hamburger__line ${expandedClass}`}></span>
