@@ -64,13 +64,13 @@ export default async function page({ params }: props) {
   );
 
   const env = process.env.NODE_ENV;
-  let extension = "png";
+  let extension = "webp";
   if (env == "development") {
     extension = "png";
   } else if (env == "production") {
     extension = "webp";
   }
-
+  console.log("env", env);
   return (
     <>
       <SlideImage
