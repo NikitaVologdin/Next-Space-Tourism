@@ -1,6 +1,5 @@
-import { expect, test, describe } from "vitest";
+import { expect, test } from "vitest";
 import { updateUrls } from "./updateDataImages";
-import updateDocumentImagesProperty from "./updateDataImages";
 
 test("updates images src", () => {
   const images = {
