@@ -71,6 +71,7 @@ export default async function page({ params }: props) {
     extension = "webp";
   }
   console.log("env", env);
+  console.log("destination", destination);
   return (
     <>
       <SlideImage
