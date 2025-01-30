@@ -1,6 +1,6 @@
 import probe from "probe-image-size";
-import fs from "fs";
-import path from "path";
+// import fs from "fs";
+// import path from "path";
 
 export function updateUrls(images: { [key: string]: string }) {
   for (const key in images) {
@@ -22,7 +22,8 @@ type document = {
 async function getImageSizes(url: string) {
   try {
     const result = await probe(
-      fs.createReadStream(path.join(process.cwd(), "/public" + url))
+      // fs.createReadStream(path.join(process.cwd(), "/public" + url))
+      `/public${url}`
     );
     return { width: result.width, height: result.height };
   } catch (e) {
