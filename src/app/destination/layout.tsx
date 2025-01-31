@@ -35,7 +35,7 @@ export default async function layout({ children }: props) {
               destination
             </h1>
           </header>
-          <section className="page__content destination">{children}</section>
+          <section>{children}</section>
         </main>
       </div>
     </>
