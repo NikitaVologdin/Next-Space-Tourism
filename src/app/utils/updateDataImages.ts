@@ -20,13 +20,20 @@ type document = {
 };
 
 async function getImageSizes(url: string) {
+  "use server";
   const resolvedPath = path.resolve("./public" + url);
   // const joinedPath = path.join(process.cwd(), "/public" + url);
-  console.log("IMG PATH =>", resolvedPath);
+  // console.log("IMG PATH =>", resolvedPath);
+  // console.log("IMG URL =>", url);
+  console.log("Current Working Directory:", process.cwd());
+  console.log(
+    "Resolved Image Path:",
+    path.resolve("./public/destination/image-moon.png")
+  );
   try {
-    // const result = await probe(fs.createReadStream(joinedPath));
-    const data = fs.readFileSync(resolvedPath);
-    const result = probe.sync(data)!;
+    const result = await probe(fs.createReadStream(resolvedPath));
+    // const data = fs.readFileSync(resolvedPath);
+    // const result = probe.sync(data)!;
 
     return { width: result.width, height: result.height };
   } catch (e) {
