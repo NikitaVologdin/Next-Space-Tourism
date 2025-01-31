@@ -4,8 +4,10 @@
 @use "../abstractions/media"
 
 .explore
+    display: flex
+    justify-content: center
+    align-items: center
     margin-top: 119px
-    @include mixins.reset-button
     width: 144px
     height: 144px
     border-radius: 50%
@@ -26,5 +28,21 @@
     @include media.tablet-above
         margin-top: 0
         justify-self: end
+        &:hover
+            box-shadow: 0 0 0 90px #ffffff23 
 
+.pulse 
+  animation: pulse-animation
+  animation-duration: 3s
+  animation-delay: 0
+  animation-iteration-count: infinite
+  animation-timing-function: ease-in
+
+@keyframes pulse-animation 
+  0% 
+    box-shadow: 0 0 0 0px #ffffffa0
+  
+  100% 
+    box-shadow: 0 0 0 90px #ffffff23 
+  
 

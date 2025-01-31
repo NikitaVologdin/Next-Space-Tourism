@@ -1,9 +1,10 @@
 "use client";
+import Link from "next/link";
 
 export default function Explore() {
   return (
-    <button className="explore" type="button">
+    <Link href="/destination/mars" className="explore pulse" type="button">
       Explore
-    </button>
+    </Link>
   );
 }
