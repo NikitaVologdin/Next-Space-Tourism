@@ -45,7 +45,9 @@ export default async function page({ params }: props) {
   const destination = (await updateDocumentImagesProp<TFetchedDestination>(
     document
   )) as unknown as TUpdatedDestination;
+
   console.log(destination);
+
   const dataSortedByTravelLength = data.sort((a, b) => {
     function getDays(string: string) {
       const arr = string.split(" ");
@@ -63,22 +65,22 @@ export default async function page({ params }: props) {
     destination.name.toLowerCase()
   );
 
-  const env = process.env.NODE_ENV;
-  let extension = "webp";
-  if (env == "development") {
-    extension = "png";
-  } else if (env == "production") {
-    extension = "webp";
-  }
-  console.log("env", env);
-  console.log("destination", destination);
+  // const env = process.env.NODE_ENV;
+  // let extension = "webp";
+  // if (env == "development") {
+  //   extension = "png";
+  // } else if (env == "production") {
+  //   extension = "webp";
+  // }
+  // console.log("env", env);
+  // console.log("destination", destination);
   return (
     <>
       <SlideImage
-        src={destination.images.png.src}
-        width={destination.images[extension].width}
+        src={destination.images.webp.src}
+        width={destination.images.webp.width}
         defaultWidth={445}
-        height={destination.images[extension].height}
+        height={destination.images.webp.height}
         defaultHeight={445}
         alt={`Shows destination target – ${destination.name} planet`}
         priority={true}
