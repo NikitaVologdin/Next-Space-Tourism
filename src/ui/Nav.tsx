@@ -1,6 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { motion } from "motion/react";
 
 type props = {
   className?: string;
@@ -13,14 +14,14 @@ export default function Nav({ className }: props) {
   return (
     <nav className={`nav ${className ? className : null}`}>
       <ul className="nav__list">
-        <li className="nav__item">
+        <motion.li className="nav__item">
           <Link
             className={`nav__link ${route === "/" ? "nav__link_active" : ""}`}
             href="/"
           >
             00 HOME
           </Link>
-        </li>
+        </motion.li>
         <li className="nav__item">
           <Link
             className={`nav__link ${
