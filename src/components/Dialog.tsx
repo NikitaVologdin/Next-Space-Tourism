@@ -38,7 +38,7 @@ export default function Dialog({ children, className, isDialogShown }: props) {
 
   useEffect(() => {
     if (path !== pathRef.current) {
-      dialogRef.current?.close();
+      // dialogRef.current?.close();
       dispatch(setIsMenuOpen(false));
     }
   }, [path, dispatch]);
@@ -51,6 +51,7 @@ export default function Dialog({ children, className, isDialogShown }: props) {
       animate={{ x: "47.5%" }}
       exit={{ x: "100vw" }}
       transition={{ duration: 0.4, ease: [0, 0.55, 0.45, 1] }}
+      id="dialog"
     >
       {children}
     </motion.dialog>

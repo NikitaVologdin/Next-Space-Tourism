@@ -8,9 +8,9 @@ type props = {
 
 export default function Nav({ className }: props) {
   const pathName = usePathname();
-
+  const navClass = className ? className : "";
   return (
-    <nav className={`nav ${className ? className : null}`}>
+    <nav className={`nav ${navClass}`} aria-label="site navigation">
       <ul className="nav__list">
         <NavItem href={"/"} pathName={pathName}>
           00 home
