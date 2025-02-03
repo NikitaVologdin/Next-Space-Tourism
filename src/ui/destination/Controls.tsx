@@ -19,7 +19,7 @@ export default function Controls({ refs }: props) {
   };
 
   return (
-    <ul className="controls destination-controls">
+    <motion.ul className="controls destination-controls">
       {refs.map((dest) => {
         return (
           <motion.li
@@ -38,6 +38,6 @@ export default function Controls({ refs }: props) {
           </motion.li>
         );
       })}
-    </ul>
+    </motion.ul>
   );
 }
