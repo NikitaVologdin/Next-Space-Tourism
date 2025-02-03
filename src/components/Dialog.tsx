@@ -3,6 +3,8 @@ import { createPortal } from "react-dom";
 import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { usePathname } from "next/navigation";
+import { useAppDispatch } from "../lib/hooks";
+import { setIsMenuOpen } from "../lib/features/mobileMenu/mobileMenuSlice";
 
 type props = {
   children: React.ReactNode;
@@ -15,6 +17,8 @@ export default function Dialog({ children, className, isDialogShown }: props) {
 
   const path = usePathname();
   const pathRef = useRef(path);
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     let timeoutID = null;
     if (isDialogShown) {
@@ -33,8 +37,11 @@ export default function Dialog({ children, className, isDialogShown }: props) {
   }, [isDialogShown]);
 
   useEffect(() => {
-    if (path !== pathRef.current) dialogRef.current?.close();
-  }, [path]);
+    if (path !== pathRef.current) {
+      dialogRef.current?.close();
+      dispatch(setIsMenuOpen(false));
+    }
+  }, [path, dispatch]);
 
   const dialog = (
     <motion.dialog
