@@ -1,16 +1,22 @@
 "use client";
 import Link from "next/link";
 import { motion } from "motion/react";
-
+import { useCallback } from "react";
 type props = {
-  path: string;
-  route: string;
+  href: string;
+  pathName: string;
   children: React.ReactNode;
 };
 
-export default function NavItem({ path, route, children }: props) {
-  //   const pathName = usePathname();
-  //   const route = pathName.split("/")[1];
+export default function NavItem({ href, pathName, children }: props) {
+  const getRoute = useCallback((pathName: string) => {
+    const arr = pathName.split("/");
+    const route = arr[1];
+    return route === "" ? "/" : route;
+  }, []);
+
+  const route = getRoute(pathName);
+  const hrefRoute = getRoute(href);
 
   const hover = {
     borderColor: "hsl(0,0%,100%,50%)",
@@ -26,10 +32,10 @@ export default function NavItem({ path, route, children }: props) {
 
   return (
     <motion.li className="nav__item" whileHover={hover}>
-      <Link className="nav__link" href={path}>
+      <Link className="nav__link" href={href}>
         {children}
       </Link>
-      {route === path && (
+      {route === hrefRoute && (
         <motion.div
           style={active}
           layoutId="underline"

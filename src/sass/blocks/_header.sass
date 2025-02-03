@@ -17,16 +17,18 @@
 .header__nav .nav__item
     padding-block: 35.5px
     border-bottom: 3px solid transparent
-    transition: border-color var(--transition-duration) ease
+    position: relative
+    // transition: border-color var(--transition-duration) ease
 
-    &:hover
-        border-color: hsl(0,0%,100%,50%)
+    // &:hover
+    //     border-color: hsl(0,0%,100%,50%)
 
-.header__nav .nav__item:has(.nav__link_active)
-    border-color: var(--white)
+// .header__nav .nav__item:has(.nav__link_active)
+//     border-color: var(--white)
 
 .header__nav .nav__link
     padding-block: 35.5px
+    text-transform: uppercase
 
 @include media.mobile-above
     .header
