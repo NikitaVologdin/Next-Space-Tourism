@@ -18,9 +18,6 @@ export default function NavItem({ href, pathName, children }: props) {
   const route = getRoute(pathName);
   const hrefRoute = getRoute(href);
 
-  // const hover = {
-  //   borderColor: "hsl(0,0%,100%,50%)",
-  // };
   const active: React.CSSProperties = {
     position: "absolute",
     bottom: 0,

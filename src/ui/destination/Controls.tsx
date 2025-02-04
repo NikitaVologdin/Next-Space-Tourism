@@ -19,7 +19,7 @@ export default function Controls({ refs }: props) {
   };
 
   return (
-    <motion.ul className="controls destination-controls">
+    <ul className="controls destination-controls">
       {refs.map((dest) => {
         return (
           <motion.li
@@ -27,7 +27,9 @@ export default function Controls({ refs }: props) {
             key={dest}
             whileHover={hover}
           >
-            <Link href={`${dest}`}>{dest}</Link>
+            <Link href={`${dest}`} prefetch={true}>
+              {dest}
+            </Link>
             {slug === dest && (
               <motion.div
                 style={active}
@@ -38,6 +40,6 @@ export default function Controls({ refs }: props) {
           </motion.li>
         );
       })}
-    </motion.ul>
+    </ul>
   );
 }
