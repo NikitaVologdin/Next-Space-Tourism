@@ -18,12 +18,12 @@ export default function NavItem({ href, pathName, children }: props) {
   const route = getRoute(pathName);
   const hrefRoute = getRoute(href);
 
-  const hover = {
-    borderColor: "hsl(0,0%,100%,50%)",
-  };
+  // const hover = {
+  //   borderColor: "hsl(0,0%,100%,50%)",
+  // };
   const active: React.CSSProperties = {
     position: "absolute",
-    bottom: -3,
+    bottom: 0,
     left: 0,
     right: 0,
     height: 3,
@@ -31,7 +31,7 @@ export default function NavItem({ href, pathName, children }: props) {
   };
 
   return (
-    <motion.li className="nav__item" whileHover={hover}>
+    <motion.li className="nav__item">
       <Link className="nav__link" href={href}>
         {children}
       </Link>

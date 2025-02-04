@@ -16,15 +16,21 @@
 
 .header__nav .nav__item
     padding-block: 35.5px
-    border-bottom: 3px solid transparent
     position: relative
-    // transition: border-color var(--transition-duration) ease
-
-    // &:hover
-    //     border-color: hsl(0,0%,100%,50%)
-
-// .header__nav .nav__item:has(.nav__link_active)
-//     border-color: var(--white)
+    &::after
+        display: block
+        content: ''
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
+        height: 3px
+        background-color: hsl(0,0%,100%,50%)
+        transform: scaleX(0)
+        transition: transform var(--transition-duration) ease
+        
+    &:hover:after
+        transform: scaleX(1)
 
 .header__nav .nav__link
     padding-block: 35.5px
