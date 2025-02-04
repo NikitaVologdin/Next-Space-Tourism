@@ -34,7 +34,7 @@ export default async function layout({ children }: props) {
               <span className="page__heading_decorator">02</span>meet your crew
             </h1>
           </header>
-          <section className="page__content crew">{children}</section>
+          <section>{children}</section>
         </main>
       </div>
     </>

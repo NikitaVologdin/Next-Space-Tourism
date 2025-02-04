@@ -35,7 +35,7 @@ export default async function layout({ children }: props) {
               101
             </h1>
           </header>
-          <section className="page__content technology">{children}</section>
+          <section>{children}</section>
         </main>
       </div>
     </>
