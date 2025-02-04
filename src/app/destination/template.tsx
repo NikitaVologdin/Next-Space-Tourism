@@ -1,9 +1,9 @@
-import Layout from "@/components/Layout";
+import TemplateWrapper from "@/components/TemplateWrapper";
 
 type props = {
   children: React.ReactNode;
 };
 
 export default function rootTemplate({ children }: props) {
-  return <Layout className="destination">{children}</Layout>;
+  return <TemplateWrapper className="destination">{children}</TemplateWrapper>;
 }
