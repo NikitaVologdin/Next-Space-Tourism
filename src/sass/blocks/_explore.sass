@@ -3,46 +3,52 @@
 @use "../abstractions/fonts"
 @use "../abstractions/media"
 
-.explore
-    display: flex
-    justify-content: center
-    align-items: center
-    margin-top: 119px
-    width: 144px
-    height: 144px
+.explore__wrapper
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: var(--white)
+  position: relative
+  // top: 119px
+  width: 144px
+  height: 144px
+  border-radius: 50%
+  margin-block: 119px 121px
+
+.explore__wave
+  position: absolute
+  width: 100%
+  height: 100%
+  background-color: inherit
+  border-radius: inherit
+
+.explore__link
+    @include fonts.font-bellefair
+    padding: 40% 23%
     border-radius: 50%
-    background-color: var(--white)
     color: var(--blue-900)
     cursor: pointer
     text-transform: uppercase
     font-weight: 400
     font-size: functions.rem(18)
     letter-spacing: 0
-    @include fonts.font-bellefair
+    position: relative 
+    z-index: 1
+    transition: opacity var(--transition-duration) ease-out
+    &:hover
+      opacity: 50%
+@include media.mobile-above
+  .explore__wrapper 
+    margin-top: 66px
+    width: 272px
+    height: 272px
+  .explore__link
+    font-size: functions.rem(32)
+@include media.tablet-above
+  .explore__wrapper
+    margin-top: 0
+    justify-self: end
 
-    @include media.mobile-above
-        margin-top: 66px
-        width: 272px
-        height: 272px
-        font-size: functions.rem(32)
-    @include media.tablet-above
-        margin-top: 0
-        justify-self: end
-        &:hover
-            box-shadow: 0 0 0 90px #ffffff23 
 
-.pulse 
-  animation: pulse-animation
-  animation-duration: 3s
-  animation-delay: 0
-  animation-iteration-count: infinite
-  animation-timing-function: ease-in
-
-@keyframes pulse-animation 
-  0% 
-    box-shadow: 0 0 0 0px #ffffffa0
-  
-  100% 
-    box-shadow: 0 0 0 90px #ffffff23 
   
 
