@@ -18,6 +18,8 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
 
 ## Overview
 
+NextJS app with cloud database. Animated for better UX using Framer Motion.
+
 ### The challenge
 
 Users should be able to:
@@ -54,7 +56,7 @@ Users should be able to:
 ### Continued development
 
 - Error handling
-- Loading interface
+- Better page transitions
 
 ### Useful resources
 

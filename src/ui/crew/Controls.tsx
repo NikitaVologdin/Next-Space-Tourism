@@ -8,7 +8,7 @@ export default function Controls({ refs }: props) {
   const { slug } = useParams<{ slug: string }>();
 
   return (
-    <div className="controls crew-controls">
+    <div className="controls crew__controls">
       {refs.map((ref, index) => {
         return (
           <Link

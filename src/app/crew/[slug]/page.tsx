@@ -44,11 +44,7 @@ export default async function page({ params }: props) {
   const astronaut = (await updateDocumentImagesProp<TFetchedAstronaut>(
     document
   )) as unknown as TUpdatedAstronaut;
-  // console.log(astronaut);
-  //1 - 700
-  //2 - 640
-  //3 - 645
-  //4 - 645
+
   return (
     <>
       <Article
