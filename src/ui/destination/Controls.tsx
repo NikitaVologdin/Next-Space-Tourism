@@ -1,12 +1,13 @@
 "use client";
-import Link from "next/link";
-import { useParams } from "next/navigation";
 import { motion } from "motion/react";
 
-type props = { refs: string[] };
+type props = {
+  refs: string[];
+  onChangeSlide: (index: number) => void;
+  currentSlide: number;
+};
 
-export default function Controls({ refs }: props) {
-  const { slug } = useParams<{ slug: string }>();
+export default function Controls({ refs, onChangeSlide, currentSlide }: props) {
   const hover = { borderColor: "hsl(0,0%,100%,50%)" };
 
   const active: React.CSSProperties = {
@@ -20,17 +21,20 @@ export default function Controls({ refs }: props) {
 
   return (
     <ul className="controls destination-controls">
-      {refs.map((dest) => {
+      {refs.map((dest, index) => {
         return (
           <motion.li
-            className="controls__button destination-controls__button"
+            className="destination-controls__item"
             key={dest}
             whileHover={hover}
           >
-            <Link href={`${dest}`} prefetch={true}>
+            <button
+              className="controls__button destination-controls__button"
+              onClick={() => onChangeSlide(index)}
+            >
               {dest}
-            </Link>
-            {slug === dest && (
+            </button>
+            {currentSlide === index && (
               <motion.div
                 style={active}
                 layoutId="dest-controls-underline"
