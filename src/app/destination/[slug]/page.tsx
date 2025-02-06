@@ -4,6 +4,7 @@ import Distance from "../../../ui/Distance";
 import SlideImage from "@/ui/SlideImage";
 import Controls from "@/ui/destination/Controls";
 import Article from "@/ui/Article";
+import { useState, useEffect } from "react";
 
 type TFetchedDestination = {
   name: string;
@@ -63,9 +64,40 @@ export default async function page({ params }: props) {
     destination.name.toLowerCase()
   );
 
+  const Slider = ({ slides }) => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    return (
+      <>
+        <SlideImage
+          src={slides[currentSlide].images.png.src}
+          width={slides[currentSlide].images.png.width}
+          defaultWidth={445}
+          height={slides[currentSlide].images.png.height}
+          defaultHeight={445}
+          alt={`Shows destination target – ${slides[currentSlide].name} planet`}
+          priority={true}
+        />
+        <Article
+          name={slides[currentSlide].name}
+          description={slides[currentSlide].description}
+          topControls={true}
+          hr={true}
+          className="destination__article"
+        >
+          <Controls refs={destinations} />
+          <Distance
+            distance={destination.distance}
+            travel={destination.travel}
+          />
+        </Article>
+      </>
+    );
+  };
+
   return (
     <>
-      <SlideImage
+      {/* <SlideImage
         src={destination.images.png.src}
         width={destination.images.png.width}
         defaultWidth={445}
@@ -83,7 +115,7 @@ export default async function page({ params }: props) {
       >
         <Controls refs={destinations} />
         <Distance distance={destination.distance} travel={destination.travel} />
-      </Article>
+      </Article> */}
     </>
   );
 }
