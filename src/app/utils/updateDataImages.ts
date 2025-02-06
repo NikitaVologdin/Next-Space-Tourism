@@ -51,11 +51,13 @@ export default async function updateDocumentImagesProperty<T extends document>(
   const images = updateUrls(document.images);
 
   const updatedImages: { [key: string]: unknown } = {};
+
   for (const key in images) {
     const uri = images[key];
     const sizes = await getImageSizes(uri)!;
     updatedImages[key] = { src: uri, ...sizes };
   }
+
   const updatedDocument = { ...document, images: updatedImages };
   return updatedDocument;
 }
