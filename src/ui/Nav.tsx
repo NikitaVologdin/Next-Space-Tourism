@@ -15,13 +15,13 @@ export default function Nav({ className }: props) {
         <NavItem href={"/"} pathName={pathName}>
           00 home
         </NavItem>
-        <NavItem href="/destination/moon" pathName={pathName}>
+        <NavItem href="/destination" pathName={pathName}>
           01 destination
         </NavItem>
-        <NavItem href="/crew/commander" pathName={pathName}>
+        <NavItem href="/crew" pathName={pathName}>
           02 crew
         </NavItem>
-        <NavItem href="/technology/launch-vehicle" pathName={pathName}>
+        <NavItem href="/technology" pathName={pathName}>
           03 technology
         </NavItem>
       </ul>
