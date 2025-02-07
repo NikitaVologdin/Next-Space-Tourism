@@ -1,23 +1,17 @@
 "use client";
-import Distance from "@/ui/Distance";
-import SlideImage from "@/ui/SlideImage";
+import SlideImage from "@/ui/technology/SlideImage";
 import Controls from "@/ui/Controls";
 import Article from "@/ui/Article";
 import { useState } from "react";
 
 interface ISlide {
   name: string;
-  description: string;
   images: {
-    [key: string]: {
-      src: string;
-      width: number;
-      height: number;
-    };
+    landscape: { src: string; width: number; height: number; quality: number };
+    portrait: { src: string; width: number; height: number; quality: number };
   };
+  description: string;
   subheading?: string;
-  distance?: string;
-  travel?: string;
 }
 
 type props = {
@@ -31,7 +25,6 @@ type props = {
 
 export default function Slider({
   slides,
-  distance,
   controls,
   topControls,
   hr,
@@ -46,13 +39,8 @@ export default function Slider({
   return (
     <>
       <SlideImage
-        src={slides[currentSlide].images.png.src}
-        width={slides[currentSlide].images.png.width}
-        defaultWidth={445}
-        height={slides[currentSlide].images.png.height}
-        defaultHeight={445}
-        alt={`Shows destination target – ${slides[currentSlide].name} planet`}
-        priority={true}
+        landscapeImage={slides[currentSlide].images.landscape}
+        portraitImage={slides[currentSlide].images.portrait}
       />
       <Article
         name={slides[currentSlide].name}
@@ -68,12 +56,6 @@ export default function Slider({
           currentSlide={currentSlide}
           controlsClass={styleClass}
         />
-        {distance && (
-          <Distance
-            distance={slides[currentSlide].distance!}
-            travel={slides[currentSlide].travel!}
-          />
-        )}
       </Article>
     </>
   );

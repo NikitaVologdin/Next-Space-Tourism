@@ -14,18 +14,14 @@
     margin-bottom: 18px
 
 .crew-controls__button
+    @include mixins.reset-button
     cursor: pointer
     padding: 15px
-
-.crew-controls__dot
-    width: 15px
-    height: 15px
     border-radius: 50%
     background-color: var(--white)
     opacity: 17.44%
 
 .crew-controls__button_active
-    .crew-controls__dot
         opacity: 100
 
 .crew .slide-image__container

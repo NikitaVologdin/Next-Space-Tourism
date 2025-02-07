@@ -14,7 +14,7 @@ type props = {
 
 export default function SlideImage({ landscapeImage, portraitImage }: props) {
   const common = { alt: "", sizes: "100vw" };
-
+  console.log(landscapeImage);
   const {
     props: { srcSet: landscape, ...rest },
   } = getImageProps({

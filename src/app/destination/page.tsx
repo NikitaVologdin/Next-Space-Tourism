@@ -55,8 +55,13 @@ export default async function page() {
   );
 
   return (
-    <>
-      <Slider slides={sortedDestinations} distance={true} controls={controls} />
-    </>
+    <Slider
+      slides={sortedDestinations}
+      controls={controls}
+      distance={true}
+      hr={true}
+      topControls={true}
+      styleClass={"destination"}
+    />
   );
 }

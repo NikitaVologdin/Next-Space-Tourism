@@ -18,7 +18,7 @@ export default function Article({
   className,
 }: props) {
   return (
-    <article className={`article ${className ? className : ""}`}>
+    <article className={`article ${className ? className + "__article" : ""}`}>
       {topControls && children}
       <h2 className="article__heading">
         {subheading && (

@@ -32,7 +32,7 @@ export default function Explore() {
         animate="animate"
         className="explore__wave"
       ></motion.span>
-      <Link href="/destination/moon" className="explore__link">
+      <Link href="/destination" className="explore__link">
         Explore
       </Link>
     </motion.div>

@@ -28,19 +28,21 @@ export default function SlideImage({
     animate: { opacity: 1, transition: { type: "spring", duration: 4 } },
   };
   return (
-    <motion.div
-      className={`slide-image__container ${className || ""}`}
-      variants={imageVariants}
-      initial="initial"
-      animate="animate"
-    >
-      <Image
-        src={src}
-        alt={alt}
-        width={width || defaultWidth}
-        height={height || defaultHeight}
-        priority={priority}
-      />
-    </motion.div>
+    <>
+      <motion.div
+        className={`slide-image__container ${className || ""}`}
+        variants={imageVariants}
+        initial="initial"
+        animate="animate"
+      >
+        <Image
+          src={src}
+          alt={alt}
+          width={width || defaultWidth}
+          height={height || defaultHeight}
+          priority={priority}
+        />
+      </motion.div>
+    </>
   );
 }
