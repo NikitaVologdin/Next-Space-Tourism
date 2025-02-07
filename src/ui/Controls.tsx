@@ -40,9 +40,7 @@ export default function Controls({
           >
             <button
               className={`controls__button ${controlsClass}-controls__button ${
-                isCrew && isCurrent
-                  ? controlsClass + "-controls__button_active"
-                  : ""
+                isCurrent ? controlsClass + "-controls__button_active" : ""
               }`}
               onClick={() => onChangeSlide(index)}
             >
