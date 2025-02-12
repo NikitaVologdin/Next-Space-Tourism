@@ -38,7 +38,7 @@ export default function MobileNav() {
                   className={`nav__link ${
                     route === "destination" ? "nav__link_active" : ""
                   }`}
-                  href="/destination/moon"
+                  href="/destination"
                 >
                   01 DESTINATION
                 </Link>
@@ -48,7 +48,7 @@ export default function MobileNav() {
                   className={`nav__link ${
                     route === "crew" ? "nav__link_active" : ""
                   }`}
-                  href="/crew/commander"
+                  href="/crew"
                 >
                   02 CREW
                 </Link>
@@ -58,14 +58,13 @@ export default function MobileNav() {
                   className={`nav__link ${
                     route === "technology" ? "nav__link_active" : ""
                   }`}
-                  href="/technology/launch-vehicle"
+                  href="/technology"
                 >
                   03 TECHNOLOGY
                 </Link>
               </li>
             </ul>
           </nav>
-          {/* <Nav className="mobile-menu__nav" /> */}
           );
         </Dialog>
       )}

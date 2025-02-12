@@ -1,3 +1,4 @@
+"use client";
 import { getImageProps } from "next/image";
 
 type TImage = {
@@ -14,7 +15,7 @@ type props = {
 
 export default function SlideImage({ landscapeImage, portraitImage }: props) {
   const common = { alt: "", sizes: "100vw" };
-  console.log(landscapeImage);
+
   const {
     props: { srcSet: landscape, ...rest },
   } = getImageProps({
@@ -33,13 +34,14 @@ export default function SlideImage({ landscapeImage, portraitImage }: props) {
     quality: portraitImage.quality,
     src: portraitImage.src,
   });
+
   return (
-    <div className="technology__slide-image">
+    <>
       <picture>
         <source srcSet={portrait} type="image/webp" media="(min-width:48em)" />
         <source srcSet={landscape} type="image/webp" media="(min-width:0em)" />
         <img {...rest} alt="" />
       </picture>
-    </div>
+    </>
   );
 }

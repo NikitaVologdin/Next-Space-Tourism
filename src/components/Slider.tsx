@@ -53,6 +53,7 @@ export default function Slider({
         defaultHeight={445}
         alt={`Shows destination target – ${slides[currentSlide].name} planet`}
         priority={true}
+        styleClass={styleClass}
       />
       <Article
         name={slides[currentSlide].name}

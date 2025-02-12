@@ -38,7 +38,6 @@ export default function Dialog({ children, className, isDialogShown }: props) {
 
   useEffect(() => {
     if (path !== pathRef.current) {
-      // dialogRef.current?.close();
       dispatch(setIsMenuOpen(false));
     }
   }, [path, dispatch]);
