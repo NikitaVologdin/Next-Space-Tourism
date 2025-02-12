@@ -11,6 +11,7 @@ export default function Explore() {
         transition: { repeat: Infinity, duration: 3, delay: delay * 1 },
       };
     },
+    hover: { x: 5 },
   };
 
   return (
@@ -19,16 +20,18 @@ export default function Explore() {
       variants={pulseVariants}
       initial="initial"
       animate="animate"
+      whileHover="hover"
+      custom={3}
     >
       <motion.span
         variants={pulseVariants}
-        custom={1}
+        custom={2}
         animate="animate"
         className="explore__wave"
       ></motion.span>
       <motion.span
         variants={pulseVariants}
-        custom={2}
+        custom={1}
         animate="animate"
         className="explore__wave"
       ></motion.span>
